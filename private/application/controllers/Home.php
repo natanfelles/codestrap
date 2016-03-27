@@ -3,11 +3,8 @@
  * Codestrap
  *
  * @package    Codestrap
- * @subpackage Controller
- * @category   Home
  * @author     Natan Felles
  * @link       https://github.com/natanfelles/codestrap
- * @since      Version 1.0.0
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -15,7 +12,13 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		echo 'Hello, world!';
+		$data['message'] = 'Hello, world!';
+		$data['notice'] = 'Everything is working fine.';
+
+		// Config and Load view
+		$data['title'] = 'Home';
+		$data['page'] = 'home';
+		$this->load->view('view', $data);
 	}
 
 }
