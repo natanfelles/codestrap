@@ -10,6 +10,9 @@ private/application/logs/*
 private/application/session/*
 !private/application/session/index.html
 
+private/application/tmp/*
+!private/application/tmp/index.html
+
 # IDE Files
 #-------------------------
 /nbproject/

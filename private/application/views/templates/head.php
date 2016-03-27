@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.min.css');?>">
 	<style>
 		body {
-			padding-top: 20px;
+			padding: 20px 0;
 		}
 	</style>
 </head>
