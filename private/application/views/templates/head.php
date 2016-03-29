@@ -21,5 +21,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		body {
 			padding: 20px 0;
 		}
+
+		header {
+			margin-bottom: 20px;
+		}
+
+		@media (max-width: 992px) {
+			#logo {
+				text-align: center !important;
+				margin-bottom: 20px;
+			}
+		}
 	</style>
 </head>

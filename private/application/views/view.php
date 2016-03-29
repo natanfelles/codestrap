@@ -15,13 +15,14 @@ isset($title) ? : $title = 'Development';
 <?php include 'templates/head.php'; ?>
 <body>
 <div class="container-fluid">
+	<?php include 'templates/header.php'; ?>
 	<div class="panel panel-default">
 		<div class="panel-heading"><?=$title;?></div>
 		<div class="panel-body">
 			<?php
 			if (isset($page)):
 				/**
-				 * @var mixed $page
+				 * @var string $page
 				 */
 				$this->load->view('pages/' . $page);
 			else:
