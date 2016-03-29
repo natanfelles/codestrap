@@ -10,10 +10,8 @@ private/application/logs/*
 private/application/session/*
 !private/application/session/index.html
 
-private/application/tmp/email/*
-!private/application/tmp/email/index.html
-private/application/tmp/upload/*
-!private/application/tmp/upload/index.html
+private/application/tmp/*
+!private/application/tmp/index.html
 
 # IDE Files
 #-------------------------
