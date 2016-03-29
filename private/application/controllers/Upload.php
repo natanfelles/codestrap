@@ -57,7 +57,7 @@ class Upload extends CI_Controller {
 	{
 		$validation = array();
 
-		$config['upload_path'] = APPPATH . 'tmp/upload';
+		$config['upload_path'] = APPPATH . 'tmp';
 		$config['allowed_types'] = $this->allowed_types;
 
 		$this->upload->initialize($config);
