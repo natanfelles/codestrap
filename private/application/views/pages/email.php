@@ -8,19 +8,16 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<?php if (validation_errors() OR isset($validation['error'])): ?>
+<?php if (validation_errors()): ?>
 	<div class="col-md-12 alert alert-danger alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
 		<ul>
-			<?php
-			echo validation_errors('<li>', '</li>');
-			echo isset($validation['error']) ? "<li>{$validation['error']}</li>" : '';
-			?>
+			<?=validation_errors('<li>', '</li>');?>
 		</ul>
 	</div>
-<?php elseif (isset($validation['status']) == TRUE): ?>
+<?php elseif (isset($success) === TRUE): ?>
 	<div class="col-md-12 alert alert-success alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
@@ -31,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <form action="" method="post" class="form-horizontal" enctype="multipart/form-data" accept-charset="utf-8">
 	<div class="col-md-6">
 		<div class="panel panel-default">
-			<div class="panel-heading">From</div>
+			<div class="panel-heading">Sender</div>
 			<div class="panel-body">
 				<div class="form-group">
 					<label for="from_name" class="col-md-2 control-label">Name</label>
@@ -50,18 +47,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="col-md-6">
 		<div class="panel panel-default">
-			<div class="panel-heading">To</div>
+			<div class="panel-heading">Recipients</div>
 			<div class="panel-body">
-				<div class="form-group">
-					<label for="to_name" class="col-md-2 control-label">Name</label>
-					<div class="col-md-10">
-						<input type="text" name="to_name" class="form-control" id="to_name" placeholder="Recipient Name" value="<?=isset($to_name) ? $to_name : '';?>" required>
-					</div>
-				</div>
 				<div class="form-group">
 					<label for="to_email" class="col-md-2 control-label">Email</label>
 					<div class="col-md-10">
 						<input type="email" name="to_email" class="form-control" id="to_email" placeholder="Recipient Email" value="<?=isset($to_email) ? $to_email : '';?>" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="cc_email" class="col-md-2 control-label">Email CC</label>
+					<div class="col-md-10">
+						<input type="email" name="cc_email" class="form-control" id="cc_email" placeholder="Recipient CC Email" value="<?=isset($cc_email) ? $cc_email : '';?>" required>
 					</div>
 				</div>
 			</div>
@@ -71,10 +68,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="panel panel-default">
 			<div class="panel-heading">Message</div>
 			<div class="panel-body">
-				<div class="form-group">
-					<label for="subject" class="col-md-1 control-label">Subject</label>
-					<div class="col-md-11">
-						<input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" value="<?=isset($subject) ? $subject : '';?>" required>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="subject" class="col-md-2 control-label">Subject</label>
+							<div class="col-md-10">
+								<input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" value="<?=isset($subject) ? $subject : '';?>" required>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="mailtype" class="col-md-8 control-label">Email Type</label>
+							<div class="col-md-4">
+								<select name="mailtype" class="form-control" id="mailtype">
+									<option value="text">Text</option>
+									<option value="html">HTML</option>
+								</select>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -83,17 +95,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<textarea name="message" id="message" rows="5" class="form-control" placeholder="Message" required="required"><?=isset($message) ? $message : '';?></textarea>
 					</div>
 				</div>
-				<?php
-				/*
-				Todo: Continues it
 				<div class="form-group">
 					<label for="attachment" class="col-md-1 control-label">Attachment</label>
 					<div class="col-md-11">
 						<input type="file" name="attachment" id="attachment">
 					</div>
 				</div>
-				*/
-				?>
 			</div>
 		</div>
 	</div>
