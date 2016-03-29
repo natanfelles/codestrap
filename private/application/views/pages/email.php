@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="col-md-12">
 		<div class="panel panel-default">
-			<div class="panel-body">
+			<div class="panel-body text-right">
 				<button type="reset" class="btn btn-danger">
 					<i class="glyphicon glyphicon-remove-sign"></i> Reset Fields
 				</button>

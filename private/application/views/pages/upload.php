@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="col-md-12">
 		<div class="panel panel-default">
-			<div class="panel-body">
+			<div class="panel-body text-right">
 				<button type="submit" class="btn btn-success">
 					<i class="glyphicon glyphicon-ok-sign"></i> Upload
 				</button>

@@ -31,6 +31,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				text-align: center !important;
 				margin-bottom: 20px;
 			}
+
+			header .nav-pills > li {
+				float: none;
+				display: inline-block;
+				*display: inline; /* ie7 fix */
+				zoom: 1; /* hasLayout ie7 trigger */
+			}
+
+			header .nav-pills {
+				text-align: center;
+			}
 		}
 	</style>
 </head>
