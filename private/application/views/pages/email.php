@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?=validation_errors('<li>', '</li>');?>
 		</ul>
 	</div>
-<?php elseif (isset($success) === TRUE): ?>
+<?php elseif (isset($success) == TRUE): ?>
 	<div class="col-md-12 alert alert-success alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>

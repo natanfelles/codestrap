@@ -36,7 +36,7 @@ class Email extends CI_Controller {
 		if ($data)
 		{
 			$data['success'] = $this->validation();
-			if ($data['success'] === TRUE)
+			if ($data['success'] == TRUE)
 			{
 				$this->sendmail($data);
 			}

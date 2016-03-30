@@ -17,31 +17,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="apple-touch-icon" href="<?=base_url('assets/img/apple-touch-icon.png');?>">
 	<link rel="icon" href="<?=base_url('assets/img/favicon.png');?>">
 	<link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.min.css');?>">
-	<style>
-		body {
-			padding: 20px 0;
-		}
-
-		header {
-			margin-bottom: 20px;
-		}
-
-		@media (max-width: 992px) {
-			#logo {
-				text-align: center !important;
-				margin-bottom: 20px;
-			}
-
-			header .nav-pills > li {
-				float: none;
-				display: inline-block;
-				*display: inline; /* ie7 fix */
-				zoom: 1; /* hasLayout ie7 trigger */
-			}
-
-			header .nav-pills {
-				text-align: center;
-			}
-		}
-	</style>
+	<link rel="stylesheet" href="<?=base_url('assets/css/codestrap.css');?>">
 </head>
