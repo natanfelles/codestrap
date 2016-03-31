@@ -64,8 +64,6 @@ class Ftp extends CI_Controller {
 		$data['title'] = 'FTP';
 		$data['page'] = 'ftp/login';
 		$this->load->view('view', $data);
-
-
 	}
 
 
@@ -96,6 +94,123 @@ class Ftp extends CI_Controller {
 
 		$data['title'] = 'FTP';
 		$data['page'] = 'ftp/list';
+		$this->load->view('view', $data);
+	}
+
+
+	public function upload()
+	{
+		if ( ! $this->session->userdata('ftp'))
+		{
+			header('Location: ' . site_url('ftp'));
+		}
+
+		if ($_FILES)
+		{
+			$data = $this->session->userdata('ftp');
+			$this->ftp->connect($data);
+
+			if (@$this->ftp->upload($_FILES['file']['tmp_name'], $this->session->userdata('ftp_path') . '/' . $_FILES['file']['name']))
+			{
+				$data['success'] = TRUE;
+			}
+			else
+			{
+				$data['error'] = TRUE;
+			}
+		}
+
+		$data['title'] = 'FTP';
+		$data['page'] = 'ftp/upload';
+		$this->load->view('view', $data);
+	}
+
+
+	public function download()
+	{
+		if ( ! $this->session->userdata('ftp'))
+		{
+			header('Location: ' . site_url('ftp'));
+		}
+
+		if ($this->input->post())
+		{
+			$data = $this->session->userdata('ftp');
+			$this->ftp->connect($data);
+
+			$file = explode('/', $this->input->post('file'));
+			$file = end($file);
+
+			if ($this->ftp->download($this->input->post('file'), APPPATH . 'tmp/' . $file))
+			{
+				$data['success'] = TRUE;
+				$this->load->helper('download');
+				force_download(APPPATH . 'tmp/' . $file, NULL);
+			}
+			else
+			{
+				$data['error'] = TRUE;
+			}
+		}
+
+		$data['title'] = 'FTP';
+		$data['page'] = 'ftp/download';
+		$this->load->view('view', $data);
+	}
+
+
+	public function move()
+	{
+		if ( ! $this->session->userdata('ftp'))
+		{
+			header('Location: ' . site_url('ftp'));
+		}
+
+		if ($this->input->post())
+		{
+			$data = $this->session->userdata('ftp');
+			$this->ftp->connect($data);
+
+			if ($this->ftp->move($this->input->post('path'), $this->input->post('new_path')))
+			{
+				$data['success'] = TRUE;
+			}
+			else
+			{
+				$data['error'] = TRUE;
+			}
+		}
+
+		$data['title'] = 'FTP';
+		$data['page'] = 'ftp/move';
+		$this->load->view('view', $data);
+	}
+
+
+	public function delete()
+	{
+		if ( ! $this->session->userdata('ftp'))
+		{
+			header('Location: ' . site_url('ftp'));
+		}
+
+		if ($this->input->post())
+		{
+			$data = $this->session->userdata('ftp');
+			$this->ftp->connect($data);
+
+			if ($this->ftp->delete_file($this->input->post('file')))
+			{
+				$data['success'] = TRUE;
+			}
+			else
+			{
+				$data['error'] = TRUE;
+			}
+		}
+
+		$data['title'] = 'FTP';
+		$data['page'] = 'ftp/delete';
 		$this->load->view('view', $data);
 	}
 

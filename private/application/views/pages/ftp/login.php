@@ -8,8 +8,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="col-md-3"></div>
-<div class="col-md-6">
+<div class="col-md-12">
 	<form action="" method="post">
 		<div class="panel panel-default">
 			<div class="panel-heading">Login</div>
@@ -41,4 +40,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</form>
 </div>
-<div class="col-md-3"></div>
