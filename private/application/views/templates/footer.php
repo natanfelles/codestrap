@@ -10,6 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <footer class="footer">
 	<div class="container">
-		<p class="text-center">&copy; <?=date('Y');?> Codestrap. CodeIgniter and Bootstrap development analyses.</p>
+		<p class="text-center">&copy; <?=date('Y');?> Codestrap. CodeIgniter and Bootstrap development analysis.</p>
 	</div>
 </footer>
