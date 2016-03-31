@@ -19,14 +19,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="col-md-10">
 		<ul class="nav nav-pills">
-			<li role="presentation" <?=$page == 'home' ? 'class="active"' : ''?>>
+			<li role="presentation" <?=$this->uri->segment(1) == '' ? 'class="active"' : ''?>>
 				<a href="<?=site_url()?>">Home</a>
 			</li>
-			<li role="presentation" <?=$page == 'email' ? 'class="active"' : ''?>>
+			<li role="presentation" <?=$this->uri->segment(1) == 'email' ? 'class="active"' : ''?>>
 				<a href="<?=site_url('email')?>">Email</a>
 			</li>
-			<li role="presentation" <?=$page == 'upload' ? 'class="active"' : ''?>>
+			<li role="presentation" <?=$this->uri->segment(1) == 'upload' ? 'class="active"' : ''?>>
 				<a href="<?=site_url('upload')?>">Upload</a>
+			</li>
+			<li role="presentation" <?=$this->uri->segment(1) == 'ftp' ? 'class="active"' : ''?>>
+				<a href="<?=site_url('ftp')?>">FTP</a>
 			</li>
 		</ul>
 	</div>
